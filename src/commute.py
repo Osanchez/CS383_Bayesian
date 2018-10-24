@@ -92,6 +92,7 @@ class MarkovChainMonteCarlo:
         # print(probability)
         return probability
 
+
 def main():
     p_r = np.array([0.1, 0.9])  # [P(r = true), P(r = false)]
     p_t_given_r = np.array([[0.8, 0.2], [0.1, 0.9]])  # [P(t|r = true), ¬P(t|r = true)], [P(t|r = false), ¬P(t|r = false)]
@@ -104,10 +105,18 @@ def main():
     p100 = MCMC.gibbs_ask_traffic([0, 0.1, 0], [0, 0.1, 0], True, bn, 100)
     p1000 = MCMC.gibbs_ask_traffic([0, 0.1, 0], [0, 0.1, 0], True, bn, 1000)
 
+    """
     print("P(R|T) =  " + str(round(((0.8 * 0.1)/0.17), 3)))
     print("10 samples: " + str(p10[0]))
     print("100 samples: " + str(p100[0]))
     print("1000 samples: " + str(p1000[0]))
+    """
+
+    print(((0.8 * 0.1)/0.17))
+    print(p10[0])
+    print(p100[0])
+    print(p1000[0])
+
 
 if __name__ == '__main__':
     main()
